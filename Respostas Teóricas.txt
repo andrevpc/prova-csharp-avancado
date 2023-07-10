@@ -1,0 +1,61 @@
+1) Singleton -> 3
+•	A inicialização de um sistema que pode usar Mongo ou Sql, pode ter várias linguagens como inglês e português e que pode ter algumas políticas diferentes para quesitos de segurança.
+
+   Builder -> 1
+•	Um sistema que implementa complexos personagens para um jogo. Todos os personagens fazem as mesmas coisas olhando em uma visão abstrata, contudo, cada personagem tem pequenas diferenças nas implementações de pedaços do que o mesmo faz.
+
+   Strategy -> 6
+•	Um bot de apostas esportivas que tem técnicas diferentes de apostas dependendo de quanto ele ganhou ou perdeu naquele dia.
+
+   Facade -> 2
+•	Usar algumas funções de uma complexa biblioteca de PDI para realizar algumas poucas tarefas que serão usadas por outro módulo do projeto.
+
+   Composite -> 7
+•	Um sistema para representar uma empresa com vários níveis de camada hierárquica com chefes dos chefes e assim por diante.
+
+   Bridge -> 5
+•	Uma aplicação para gerenciar hospitais. As vezes o usuário pode querer trocar o hospital visto e atualizar todo o sistema para funcionar vendo dados deste hospital.
+
+   Memento -> 4
+•	Um sistema de edição de texto com Salvar, Desfazer e Refazer.
+
+
+2) a)   i) Adequado
+	ii) Adequado
+	iii) Não é adequado
+
+   b)   i) Adequado
+	ii) Adequado
+	iii) Não é adequado
+
+   c)   i) Adequado
+	ii) Adequado
+	iii) Não é adequado
+
+3) Na pasta "Questão 3"
+
+4) Usando a lei de Ahmdahl (S = k/(p+k*(1-p)), sendo S o ganho teórico, k a quatidade de cores e p a porcentagem do código que pode ser paralelizada, sabendo que k = 4 ; p = 0,8 ; t0 = 10s.
+Colocando na fórmula: S = 4 / (0,8 + 4 * (1 - 0,8)) temos que S = 2,5 .'. 150% mais rápido. Como o t0 = 10s, o t com o programa paralelizado, utilizando t = t0/S = 10 / 2,5 .'. t = 4
+
+5) a) Instrução Lock
+   b) Classe Interlock
+   c) ConcurrentQueue
+   d) Como é apenas leitura, já é Thread Safe
+
+6) Na pasta "Questão 6"
+
+7) O processo se inicia vendo o contexto que está sendo usado e dependendo de que banco (Sql Server, MySql...) está sendo usado, mesmo usando o mesmo comando, diferentes funções serão chamadas, cada uma se adequando com a plataforma escolhida e o retorno delas é, assim como o comando, igual independente do banco escolhido, com essa query em mãos, podemos transforma-lá em lista com o comando ToListAsync, que faz isso de maneira assíncrona e o dado vem para o usuário como uma lista de objetos da tabela escolhida, esse objeto já é criado junto com o contexto pelo framework (ex.: List<Users>)
+
+8) Ao fazer login, colocamos no username: 
+'; create table VoceFoiGoiabado (id int);--
+Ao fazer isso, fechamos o input de username com a ', depois colocamos o comando de criar tabela (com id int, pois o sql não aceita uma tabela sem colunas dentro) e comentamos o resto do código (onde provalvelmente entraria o input da senha) com --
+
+9) a) Token Jwt (header.payload.signature), ao acessar uma página com restrição o usuario enviaria o seu token ao back, se adulterado o objeto dentro do jwt, a assinatura (signature) indicaria que isso aconteceu, pois ela é formada de acordo com os dois primeiros elementos (header.payload)
+
+   b) Criptografia, o dado sensível não é diretamente salvo no banco, mas passa por um processo de criptografia (não podemos usar o Hash, pois deve ser desfeito para ser usado na hora do login no site do governo)
+
+   c) Hash, eu pegaria o login, um salt (também salvo no banco), e uma senha (padrão e secreta para todos) e usaria esses inputs no hash. Assim criando o código desejado, pois queremos algo único para cada (improvavel de siar dois hashs iguais) e não precisa ser desfeito (3 entradas e uma saida)
+
+   d) Refresh Token, o token se atualiza a cada n segundos isso dificulta que um man in the middle pegue esse token e utilize-o
+
+10) Na pasta "Questão 10"
