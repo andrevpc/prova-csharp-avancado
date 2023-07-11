@@ -19,7 +19,7 @@ chefeSub2.Add(new Programador());
 chefeSub2.Add(new Programador());
 chefeSub2.Add(new Estagiario());
 
-string msg = "Confidencial";
+string msg = "Importante";
 
 chefeSub1.Receber(msg);
 chefeSub2.Receber(msg);
@@ -38,8 +38,11 @@ public class Chefe : Empregado //Composite
 
     public override void Receber(string msg)
     {
-        foreach (var obj in list)
-            obj.Receber(msg);
+        if (!msg.Contains("Confidencial"))
+        {
+            foreach (var obj in list)
+                obj.Receber(msg);
+        }
     }
 }
 public class Secretario : Empregado //Composite
@@ -117,5 +120,5 @@ public class Estagiario : Empregado
 public class Programador : Empregado
 {
     public override void Receber(string msg)
-        => System.Console.WriteLine(msg);
+        => System.Console.WriteLine("Mensagem Recebida");
 }
